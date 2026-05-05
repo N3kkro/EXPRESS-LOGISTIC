@@ -1,0 +1,132 @@
+.services-section {
+  background-color: #f7f7f7; /* Light background like the image */
+}
+
+/* --- Header Styling --- */
+.services-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.section-title {
+  font-size: 32px;
+  font-weight: 600;
+  color: #111;
+  margin: 0;
+}
+
+.view-all-link {
+  color: #666;
+  text-decoration: none;
+  font-size: 16px;
+  transition: color 0.3s;
+}
+
+.view-all-link:hover {
+  color: #111;
+}
+
+/* --- Grid Styling --- */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 columns */
+  grid-template-rows: repeat(2, 1fr);    /* 2 rows */
+  gap: 30px; /* Space between cards */
+}
+
+/* --- Card Styling --- */
+.service-card {
+  background-color: #fff;
+  border-radius: 20px; /* Rounded corners like the image */
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); /* Soft shadow */
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+/* Subtle lift on hover */
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Image styling to fill the top of the card */
+.card-image-container {
+  width: 100%;
+  height: 200px; /* Adjust height as needed */
+  overflow: hidden;
+}
+
+.card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Important: fills without distorting */
+  transition: transform 0.5s;
+}
+
+/* Slight zoom on image when card is hovered */
+.service-card:hover .card-image {
+  transform: scale(1.05);
+}
+
+/* --- Card Content (Text and Icon) --- */
+.card-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px; /* Spacing within the text area */
+}
+
+.card-title {
+  font-size: 18px;
+  font-weight: 500;
+  color: #111;
+  margin: 0;
+  flex: 1; /* Title takes available space */
+}
+
+/* Circle background and arrow icon style */
+.card-arrow {
+  width: 32px;
+  height: 32px;
+  background-color: #f0f0f0; /* Default grey background */
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 15px;
+  transition: background-color 0.3s;
+}
+
+/* Icon color inside the circle */
+.card-arrow svg {
+  width: 16px;
+  height: 16px;
+  color: #2563eb; /* Blue arrow color like the image */
+}
+
+/* Hover effect only for the arrow icon */
+.service-card:hover .card-arrow {
+  background-color: #2563eb; /* Becomes blue on hover */
+}
+
+.service-card:hover .card-arrow svg {
+  color: #fff; /* Arrow becomes white on hover */
+}
+
+/* Mobile responsiveness */
+@media (max-width: 992px) {
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns on tablets */
+  }
+}
+
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 26px;
+  }
+  .services-grid {
+    grid-template-columns: 1fr; /* 1 column on phones */
+  }
+}

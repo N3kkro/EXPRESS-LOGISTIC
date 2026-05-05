@@ -6,30 +6,39 @@ import TransportMap from './TransportMap';
 import AboutCompany from './AboutCompany';
 import Routes from './Routes';
 import WhyChooseUs from './WhyChooseUs';
+import ContactUs from './Contanctus';
+import Services from './Services';
+import TWO_GIS from "./assets/2GIS_logo.svg"
 
 // Translation Dictionary for the App component
 const translations = {
   RU: {
     aboutTab: "О КОМПАНИИ",
     processFlow: "НАШ ПОДХОД",
-    chooseUsTab: "ПОЧЕМУ МЫ", // <--- NEW TAB
+    chooseUsTab: "ПОЧЕМУ МЫ", 
     locationTab: "РАСПОЛОЖЕНИЕ",
     heroTitle: "Ваш стратегический партнер в международной логистике",
     heroDesc: "Бесперебойные и безопасные ж/д грузоперевозки по Казахстану, Китаю и странам ЕАЭС. Полный цикл доставки «от двери до двери».",
     learnBtn: "Узнать больше",
     footerDesc: "Профессиональные решения в сфере международной железнодорожной логистики.",
-    phoneLabel: "Телефон для связи" 
+    phoneLabel: "Телефон для связи",
+    addressLabel: "Адрес",
+    addressText: "Проспект Ракымжан Кошкарбаев, 1/4",
+    openIn2Gis: "Открыть в 2GIS"
   },
   EN: {
     aboutTab: "ABOUT COMPANY",
     processFlow: "OUR APPROACH",
-    chooseUsTab: "WHY CHOOSE US", // <--- NEW TAB
+    chooseUsTab: "WHY CHOOSE US", 
     locationTab: "COMPANY LOCATION",
     heroTitle: "Your strategic partner in international logistics",
     heroDesc: "Uninterrupted and safe rail freight across Kazakhstan, China, and the EAEU. Full-cycle «door-to-door» delivery.",
     learnBtn: "Learn more",
     footerDesc: "Professional solutions in international railway logistics.",
-    phoneLabel: "Contact phone"
+    phoneLabel: "Contact phone",
+    addressLabel: "Address",
+    addressText: "Rakymzhan Koshkarbaev Avenue, 1/4",
+    openIn2Gis: "Open in 2GIS"
   }
 };
 
@@ -111,7 +120,6 @@ function App() {
                 <span className="tab-text">{t.processFlow}</span>
                 <span className="tab-underline"></span>
               </li>
-              {/* NEW TAB ADDED HERE */}
               <li className="nav-tab" onClick={() => scrollToSection('choose-us')}>
                 <span className="tab-text">{t.chooseUsTab}</span>
                 <span className="tab-underline"></span>
@@ -140,7 +148,6 @@ function App() {
           <ul className="mobile-nav-tabs">
             <li className="mobile-nav-tab" onClick={() => scrollToSection('about-company')}>{t.aboutTab}</li>
             <li className="mobile-nav-tab" onClick={() => scrollToSection('process-flow')}>{t.processFlow}</li>
-            {/* NEW MOBILE TAB ADDED HERE */}
             <li className="mobile-nav-tab" onClick={() => scrollToSection('choose-us')}>{t.chooseUsTab}</li>
             <li className="mobile-nav-tab" onClick={() => scrollToSection('company-location')}>{t.locationTab}</li>
           </ul>
@@ -166,17 +173,22 @@ function App() {
           <AboutCompany language={language}/>
         </div>
         <div>
+          <Services language={language}/>
+        </div>
+        <div>
           <Routes language={language}/>
         </div>
         <div id="process-flow">
           <ProcessFlow language={language} />
         </div>
         <div id='choose-us'>
-          {/* Added language={language} here so the new block translates! */}
           <WhyChooseUs language={language}/> 
         </div>
+        <div id="company-location">
+          <TransportMap language={language}/>
+        </div>
         <div>
-          <TransportMap />
+          <ContactUs language={language}/>
         </div>
       </main>
 
@@ -198,8 +210,42 @@ function App() {
           </div>
 
           <div className="footer-contact">
-              <span className="contact-label">{t.phoneLabel}:</span>
-              <p>+7 707 120 43 77</p>
+            {/* Phone Number */}
+            <div style={{ marginBottom: '16px' }}>
+              <span className="contact-label" style={{ color: '#8b949e', fontSize: '13px', textTransform: 'uppercase' }}>{t.phoneLabel}:</span>
+              <p style={{ margin: '4px 0 0 0', fontWeight: '500' }}>+7 707 120 43 77</p>
+            </div>
+            
+            {/* Address & 2GIS Link */}
+            <div>
+              <span className="contact-label" style={{ color: '#8b949e', fontSize: '13px', textTransform: 'uppercase' }}>{t.addressLabel}:</span>
+              <p style={{ margin: '4px 0 10px 0', fontWeight: '500' }}>{t.addressText}</p>
+              
+              <a 
+                href="https://2gis.kz/astana/firm/70000001095552056/71.465072%2C51.129505" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                style={{ 
+                  display: 'inline-flex', 
+                  alignItems: 'center', 
+                  gap: '8px', 
+                  color: '#A4C516', /* 2GIS Green */
+                  textDecoration: 'none', 
+                  fontWeight: '600', 
+                  fontSize: '14px',
+                  backgroundColor: 'rgba(227, 236, 229, 0.88)',
+                  padding: '6px 12px',
+                  borderRadius: '6px',
+                  transition: 'background-color 0.3s'
+                }}
+                onMouseOver={(e) => e.currentTarget.style.backgroundColor = 'rgba(207, 207, 205, 0.85)'}
+                onMouseOut={(e) => e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.94)'}
+              >
+                {/* 2GIS Style Map Pin SVG */}
+                <img src={TWO_GIS} alt="" className='gis_img'/>
+                
+              </a>
+            </div>
           </div>
         </div>
       </footer> 
