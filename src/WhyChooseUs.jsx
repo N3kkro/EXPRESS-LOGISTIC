@@ -5,7 +5,7 @@ const translations = {
   RU: {
     eyebrow: "ПОЧЕМУ ВЫБИРАЮТ НАС",
     titleStart: "Почему ",
-    highlight: "EXPRESS-LOGISTIC",
+    highlight: "EXPRESS-LOGISTICS",
     titleEnd: " — ваш надежный партнер",
     cards: [
       {
@@ -42,7 +42,7 @@ const translations = {
   EN: {
     eyebrow: "WHY CHOOSE US",
     titleStart: "Why ",
-    highlight: "EXPRESS-LOGISTIC",
+    highlight: "EXPRESS-LOGISTICS",
     titleEnd: " is The Right Choice",
     cards: [
       {

@@ -3,7 +3,7 @@ import './Contactus.css';
 
 const contactTranslations = {
   RU: {
-    brandName: "EXPRESS-LOGISTIC",
+    brandName: "EXPRESS-LOGISTICS",
     quote: "\"Соединяем рынки. Выполняем обещания. Ваш надежный партнер в международной логистике и транзите.\"",
     heading: "ВЫ ГОТОВЫ К СОТРУДНИЧЕСТВУ?",
     description: "Оставьте ваши данные, и наш специалист свяжется с вами в течение рабочего часа для подготовки индивидуального предложения.",
@@ -19,7 +19,7 @@ const contactTranslations = {
     btnError: "Ошибка. Попробуйте еще раз."
   },
   EN: {
-    brandName: "EXPRESS-LOGISTIC",
+    brandName: "EXPRESS-LOGISTICS",
     quote: "\"Connecting markets. Delivering promises. Your reliable partner in international logistics and transit.\"",
     heading: "ARE YOU READY FOR COOPERATION?",
     description: "Leave your details, and our specialist will contact you within a working hour to prepare an individual offer.",

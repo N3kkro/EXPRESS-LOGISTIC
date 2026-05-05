@@ -100,7 +100,7 @@ function App() {
         <header className={`hero-header ${isScrolled ? 'sticky-header' : ''}`}>
           <div className="header-container">
             <div className="logo" style={{ cursor: 'pointer' }} onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})}>
-              EXPRESS-LOGISTIC
+              EXPRESS-LOGISTICS
             </div>
             
             <button className="burger-btn" onClick={() => setIsMenuOpen(true)}>
@@ -197,7 +197,7 @@ function App() {
         <div className="footer-container">
           <div className="footer-left">
             <h2 className="footer-logo" style={{ cursor: 'pointer' }} onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})}>
-              EXPRESS-LOGISTIC
+              EXPRESS-LOGISTICS
             </h2>
             <p className="footer-subtitle">{t.footerDesc}</p>
           </div>
