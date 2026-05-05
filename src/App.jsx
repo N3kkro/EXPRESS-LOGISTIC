@@ -175,17 +175,14 @@ function App() {
         <div>
           <Services language={language}/>
         </div>
-        <div>
-          <Routes language={language}/>
+        <div id="company-location">
+          <TransportMap language={language}/>
         </div>
         <div id="process-flow">
           <ProcessFlow language={language} />
         </div>
         <div id='choose-us'>
           <WhyChooseUs language={language}/> 
-        </div>
-        <div id="company-location">
-          <TransportMap language={language}/>
         </div>
         <div>
           <ContactUs language={language}/>
