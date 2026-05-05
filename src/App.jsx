@@ -3,26 +3,31 @@ import Hero from "./assets/hero.mp4"
 import './App.css'
 import ProcessFlow from './processFlow';
 import TransportMap from './TransportMap';
+import AboutCompany from './AboutCompany';
 
 // Translation Dictionary for the App component
 const translations = {
   RU: {
     aboutTab: "О КОМПАНИИ",
+    processFlow: "НАШ ПОДХОД",
     locationTab: "РАСПОЛОЖЕНИЕ",
     heroTitle: "Ваш стратегический партнер в международной логистике",
     heroDesc: "Бесперебойные и безопасные ж/д грузоперевозки по Казахстану, Китаю и странам ЕАЭС. Полный цикл доставки «от двери до двери».",
-    catalogBtn: "Смотреть каталог",
     learnBtn: "Узнать больше",
-    footerDesc: "Профессиональные решения в сфере международной железнодорожной логистики."
+    footerDesc: "Профессиональные решения в сфере международной железнодорожной логистики.",
+    footerDesc: "Профессиональные решения в сфере международной железнодорожной логистики.",
+    phoneLabel: "Телефон для связи" 
   },
   EN: {
     aboutTab: "ABOUT COMPANY",
+    processFlow: "OUR APPROACH",
     locationTab: "COMPANY LOCATION",
     heroTitle: "Your strategic partner in international logistics",
     heroDesc: "Uninterrupted and safe rail freight across Kazakhstan, China, and the EAEU. Full-cycle «door-to-door» delivery.",
-    catalogBtn: "Check catalog",
     learnBtn: "Learn more",
-    footerDesc: "Professional solutions in international railway logistics."
+    footerDesc: "Professional solutions in international railway logistics.",
+    footerDesc: "Professional solutions in international railway logistics.",
+    phoneLabel: "Contact phone"
   }
 };
 
@@ -100,6 +105,10 @@ function App() {
                 <span className="tab-text">{t.aboutTab}</span>
                 <span className="tab-underline"></span>
               </li>
+              <li className="nav-tab" onClick={() => scrollToSection('process-flow')}>
+                <span className="tab-text">{t.processFlow}</span>
+                <span className="tab-underline"></span>
+              </li>
               <li className="nav-tab" onClick={() => scrollToSection('company-location')}>
                 <span className="tab-text">{t.locationTab}</span>
                 <span className="tab-underline"></span>
@@ -123,6 +132,7 @@ function App() {
 
           <ul className="mobile-nav-tabs">
             <li className="mobile-nav-tab" onClick={() => scrollToSection('about-company')}>{t.aboutTab}</li>
+            <li className="mobile-nav-tab" onClick={() => scrollToSection('process-flow')}>{t.processFlow}</li>
             <li className="mobile-nav-tab" onClick={() => scrollToSection('company-location')}>{t.locationTab}</li>
           </ul>
 
@@ -136,7 +146,6 @@ function App() {
           <h1 className="hero-title">{t.heroTitle}</h1>
           <p className="hero-description">{t.heroDesc}</p>
           <div className="hero-buttons">
-            <button className="btn-primary btn-large">{t.catalogBtn}</button>
             <button className="btn-outline btn-large" onClick={() => scrollToSection('about-company')}>{t.learnBtn}</button>
           </div>
         </div>
@@ -145,6 +154,9 @@ function App() {
       {/* MAIN CONTENT (Passing the language state down as a prop) */}
       <main className="main-content">
         <div id="about-company">
+          <AboutCompany language={language}/>
+        </div>
+        <div id="process-flow">
           <ProcessFlow language={language} />
         </div>
         <div id="company-location">
@@ -161,8 +173,15 @@ function App() {
           </div>
           <div className="footer-right">
             <span className="footer-link" onClick={() => scrollToSection('about-company')}>{t.aboutTab}</span>
+            <span className="footer-link" onClick={() => scrollToSection('process-flow')}>{t.processFlow}</span>
             <span className="footer-link" onClick={() => scrollToSection('company-location')}>{t.locationTab}</span>
+            
+
           </div>
+          <div className="footer-contact">
+              <span className="contact-label">{t.phoneLabel}:</span>
+              <a href="tel:+77071204377" className="contact-number">+7 707 120 43 77</a>
+            </div>
         </div>
       </footer> 
       

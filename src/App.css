@@ -540,7 +540,11 @@ body {
 .footer-link:hover {
   color: #ffffff;
 }
-
+.footer-contact{
+  display: flex;
+  flex-direction: column;
+  color: #a3a3a3;
+}
 /* Responsive Footer for Mobile */
 @media (max-width: 768px) {
   .footer-container {

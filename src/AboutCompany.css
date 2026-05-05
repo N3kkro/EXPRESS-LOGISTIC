@@ -1,0 +1,123 @@
+.about-company-section {
+  background-color: #ffffff; /* Clean white background */
+  color: #111111; /* Deep black text */
+  padding: 6rem 1.5rem;
+  width: 100%;
+}
+
+.about-content-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+/* --- Left Column: About Us --- */
+.about-left-column {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.about-title-wrapper {
+  /* This creates the vertical line next to the title from the template */
+  border-left: 6px solid #1b4d3e; /* Forest Green */
+  padding-left: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.about-main-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  line-height: 1.1;
+  color: #000000;
+  max-width: 400px;
+}
+
+.about-description {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: #4a4a4a; /* Slightly lighter gray for readable paragraphs */
+  margin-bottom: 1.5rem;
+  max-width: 500px;
+}
+
+.btn-forest {
+  background-color: #1b4d3e; /* Forest Green */
+  color: #ffffff;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.btn-forest:hover {
+  background-color: #12352a; /* Darker green on hover */
+}
+
+/* --- Right Column: What We Do --- */
+.about-right-column {
+  flex: 1;
+}
+
+.what-we-do-title {
+  color: #1b4d3e; /* Forest Green */
+  font-size: 1.25rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 2rem;
+}
+
+.services-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem; /* Spacing between the list items */
+}
+
+.service-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+}
+
+.service-icon {
+  flex-shrink: 0;
+  color: #1b4d3e; /* Forest Green Icons */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.service-icon svg {
+  width: 36px;
+  height: 36px;
+}
+
+.service-text h4 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #000000;
+  margin-bottom: 0.5rem;
+}
+
+.service-text p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #666666;
+}
+
+/* --- Responsive Layout (Tablet & Desktop) --- */
+@media (min-width: 992px) {
+  .about-content-container {
+    flex-direction: row; /* Puts them side-by-side on large screens */
+    gap: 6rem;
+  }
+}
