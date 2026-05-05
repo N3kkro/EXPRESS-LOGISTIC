@@ -4,28 +4,30 @@ import './App.css'
 import ProcessFlow from './processFlow';
 import TransportMap from './TransportMap';
 import AboutCompany from './AboutCompany';
+import Routes from './Routes';
+import WhyChooseUs from './WhyChooseUs';
 
 // Translation Dictionary for the App component
 const translations = {
   RU: {
     aboutTab: "О КОМПАНИИ",
     processFlow: "НАШ ПОДХОД",
+    chooseUsTab: "ПОЧЕМУ МЫ", // <--- NEW TAB
     locationTab: "РАСПОЛОЖЕНИЕ",
     heroTitle: "Ваш стратегический партнер в международной логистике",
     heroDesc: "Бесперебойные и безопасные ж/д грузоперевозки по Казахстану, Китаю и странам ЕАЭС. Полный цикл доставки «от двери до двери».",
     learnBtn: "Узнать больше",
-    footerDesc: "Профессиональные решения в сфере международной железнодорожной логистики.",
     footerDesc: "Профессиональные решения в сфере международной железнодорожной логистики.",
     phoneLabel: "Телефон для связи" 
   },
   EN: {
     aboutTab: "ABOUT COMPANY",
     processFlow: "OUR APPROACH",
+    chooseUsTab: "WHY CHOOSE US", // <--- NEW TAB
     locationTab: "COMPANY LOCATION",
     heroTitle: "Your strategic partner in international logistics",
     heroDesc: "Uninterrupted and safe rail freight across Kazakhstan, China, and the EAEU. Full-cycle «door-to-door» delivery.",
     learnBtn: "Learn more",
-    footerDesc: "Professional solutions in international railway logistics.",
     footerDesc: "Professional solutions in international railway logistics.",
     phoneLabel: "Contact phone"
   }
@@ -35,7 +37,7 @@ function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   
-  // NEW: State to control the current language (Defaults to RU)
+  // State to control the current language (Defaults to RU)
   const [language, setLanguage] = useState('RU');
 
   // Helper variable so we don't have to type translations[language] every time
@@ -109,6 +111,11 @@ function App() {
                 <span className="tab-text">{t.processFlow}</span>
                 <span className="tab-underline"></span>
               </li>
+              {/* NEW TAB ADDED HERE */}
+              <li className="nav-tab" onClick={() => scrollToSection('choose-us')}>
+                <span className="tab-text">{t.chooseUsTab}</span>
+                <span className="tab-underline"></span>
+              </li>
               <li className="nav-tab" onClick={() => scrollToSection('company-location')}>
                 <span className="tab-text">{t.locationTab}</span>
                 <span className="tab-underline"></span>
@@ -133,6 +140,8 @@ function App() {
           <ul className="mobile-nav-tabs">
             <li className="mobile-nav-tab" onClick={() => scrollToSection('about-company')}>{t.aboutTab}</li>
             <li className="mobile-nav-tab" onClick={() => scrollToSection('process-flow')}>{t.processFlow}</li>
+            {/* NEW MOBILE TAB ADDED HERE */}
+            <li className="mobile-nav-tab" onClick={() => scrollToSection('choose-us')}>{t.chooseUsTab}</li>
             <li className="mobile-nav-tab" onClick={() => scrollToSection('company-location')}>{t.locationTab}</li>
           </ul>
 
@@ -151,16 +160,23 @@ function App() {
         </div>
       </section>
 
-      {/* MAIN CONTENT (Passing the language state down as a prop) */}
+      {/* MAIN CONTENT */}
       <main className="main-content">
         <div id="about-company">
           <AboutCompany language={language}/>
         </div>
+        <div>
+          <Routes language={language}/>
+        </div>
         <div id="process-flow">
           <ProcessFlow language={language} />
         </div>
-        <div id="company-location">
-          <TransportMap language={language} />
+        <div id='choose-us'>
+          {/* Added language={language} here so the new block translates! */}
+          <WhyChooseUs language={language}/> 
+        </div>
+        <div>
+          <TransportMap />
         </div>
       </main>
 
@@ -168,20 +184,23 @@ function App() {
       <footer className="site-footer">
         <div className="footer-container">
           <div className="footer-left">
-            <h2 className="footer-logo">EXPRESS-LOGISTIC</h2>
+            <h2 className="footer-logo" style={{ cursor: 'pointer' }} onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})}>
+              EXPRESS-LOGISTIC
+            </h2>
             <p className="footer-subtitle">{t.footerDesc}</p>
           </div>
+          
           <div className="footer-right">
             <span className="footer-link" onClick={() => scrollToSection('about-company')}>{t.aboutTab}</span>
             <span className="footer-link" onClick={() => scrollToSection('process-flow')}>{t.processFlow}</span>
+            <span className="footer-link" onClick={() => scrollToSection('choose-us')}>{t.chooseUsTab}</span>
             <span className="footer-link" onClick={() => scrollToSection('company-location')}>{t.locationTab}</span>
-            
-
           </div>
+
           <div className="footer-contact">
               <span className="contact-label">{t.phoneLabel}:</span>
-              <a href="tel:+77071204377" className="contact-number">+7 707 120 43 77</a>
-            </div>
+              <p>+7 707 120 43 77</p>
+          </div>
         </div>
       </footer> 
       
